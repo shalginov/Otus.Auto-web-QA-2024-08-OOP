@@ -4,6 +4,8 @@ import math
 
 class Circle(Figure):
     def __init__(self, radius) -> None:
+        if radius <= 0:
+            raise ValueError("The radius can`t be less than 0")
         self.radius = radius
 
     @property

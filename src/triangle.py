@@ -10,11 +10,13 @@ class Triangle(Figure):
         self.side_b = side_b
         self.side_c = side_c
 
+    @property
     def get_area(self):
         sp = self.get_perimetr() / 2  # sime perimetr
         return math.sqrt(
             sp * (sp - self.side_a) * (sp - self.side_b) * (sp - self.side_c)
         )
 
+    @property
     def get_perimetr(self):
         return self.side_a + self.side_b + self.side_c

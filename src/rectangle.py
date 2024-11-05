@@ -1,4 +1,4 @@
-from figure import Figure
+from src.figure import Figure
 
 
 class Rectangle(Figure):
@@ -11,9 +11,9 @@ class Rectangle(Figure):
         self.side_b = side_b
 
     @property
-    def get_area(self):
+    def area(self):
         return self.side_a * self.side_b
 
     @property
-    def get_perimetr(self):
+    def perimetr(self):
         return self.side_a * 2 + self.side_b * 2

@@ -3,13 +3,20 @@ import pytest
 
 PRECISION = 0.01
 
+radius_value_error_list = [0, -1]
+
+
+@pytest.mark.parametrize("radius", radius_value_error_list)
+def test_radius_value_error(radius):
+    with pytest.raises(ValueError) as err:
+        Circle(radius)
+    assert "The radius can`t be less than 0" == str(err.value)
+
 
 area_test_list = [
     (4, 50.27),
     (1, 3.14),
     (1.56, 7.65),
-    (0, 0),
-    (-1, 0),
 ]
 
 
@@ -24,8 +31,6 @@ perimetr_test_list = [
     (1, 6.28),
     (1, 6.28),
     (1.56, 9.8),
-    (0, 0),
-    (-1, 0),
 ]
 
 

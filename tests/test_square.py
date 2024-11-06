@@ -1,11 +1,20 @@
 from src.square import Square
 import pytest
 
+
+side_value_error_list = [0, -1]
+
+
+@pytest.mark.parametrize("side_a", side_value_error_list)
+def test_side_value_error(side_a):
+    with pytest.raises(ValueError) as err:
+        Square(side_a)
+    assert "Square sides can`t be less than 0" == str(err.value)
+
+
 area_test_list = [
     (5, 25),
     (1, 1),
-    (0, 0),
-    (-1, 0),
 ]
 
 
@@ -21,8 +30,6 @@ def test_area_square(
 perimetr_test_list = [
     (6, 24),
     (1, 4),
-    (0, 0),
-    (-1, 0),
 ]
 
 
